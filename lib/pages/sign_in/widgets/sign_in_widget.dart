@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_flutter_bloc/common/values/colors.dart';
 
 AppBar buildAppBar() => AppBar(
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1.0),
         child: Container(
-          color: Colors.grey.withOpacity(0.50),
+          color: AppColors.primarySecondaryBackground,
           height: 1.0,
         ),
       ),
@@ -13,7 +14,7 @@ AppBar buildAppBar() => AppBar(
       title: Text(
         "Login",
         style: TextStyle(
-          color: Colors.black,
+          color: AppColors.primaryText,
           fontSize: 16.sp,
           fontWeight: FontWeight.normal,
         ),
@@ -67,7 +68,7 @@ Widget buildTextField(
           Radius.circular(15.r),
         ),
         border: Border.all(
-          color: Colors.black,
+          color: AppColors.primaryFourthElementText,
         ),
       ),
       child: Row(
@@ -82,7 +83,7 @@ Widget buildTextField(
             child: TextField(
               keyboardType: TextInputType.multiline,
               style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.primaryText,
                   fontWeight: FontWeight.normal,
                   fontSize: 14.sp,
                   fontFamily: 'Avenir'),
@@ -90,7 +91,7 @@ Widget buildTextField(
               obscureText: textType == 'password',
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: TextStyle(color: Colors.grey.withOpacity(0.50)),
+                hintStyle: const TextStyle(color: AppColors.primarySecondaryElementText),
 
                 // ***
                 // Borders
@@ -125,25 +126,32 @@ Widget forgotPassword() => SizedBox(
         child: Text(
           "Forgot password",
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.primaryText,
             decoration: TextDecoration.underline,
-            decorationColor: Colors.blue,
+            decorationColor: AppColors.primaryText,
             fontSize: 12.sp,
           ),
         ),
       ),
     );
 
-Widget buildLoginAndRegisterButton(String text) => GestureDetector(
+Widget buildLoginAndRegisterButton(String text, String buttonType) =>
+    GestureDetector(
       onTap: () {},
       child: Container(
         width: 325.w,
         height: 50.h,
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: buttonType == 'login'
+              ? AppColors.primaryElement
+              : AppColors.primaryBackground,
           borderRadius: BorderRadius.all(
             Radius.circular(15.r),
           ),
+          border: Border.all(
+              color: buttonType == 'login'
+                  ? Colors.transparent
+                  : AppColors.primaryFourthElementText),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.1),
@@ -158,7 +166,9 @@ Widget buildLoginAndRegisterButton(String text) => GestureDetector(
             text,
             style: TextStyle(
               fontSize: 16.sp,
-              color: Colors.white,
+              color: buttonType == 'login'
+                  ? AppColors.primaryBackground
+                  : AppColors.primaryText,
               fontWeight: FontWeight.normal,
             ),
           ),

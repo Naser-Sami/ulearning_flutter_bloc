@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_flutter_bloc/pages/sign_in/widgets/sign_in_widget.dart';
+
+import '/pages/sign_in/widgets/sign_in_widget.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -25,7 +26,7 @@ class _SignInState extends State<SignIn> {
                 child: reusableText("Or use your email account to login"),
               ),
               Container(
-                margin: EdgeInsets.only(top: 66.r),
+                margin: EdgeInsets.only(top: 36.r),
                 padding: EdgeInsets.symmetric(horizontal: 25.r),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,9 +44,9 @@ class _SignInState extends State<SignIn> {
                       iconName: 'lock',
                     ),
                     forgotPassword(),
-                    buildLoginAndRegisterButton("Login"),
+                    buildLoginAndRegisterButton("Login", 'login'),
                     SizedBox(height: 16.h),
-                    buildLoginAndRegisterButton("Register"),
+                    buildLoginAndRegisterButton("Register", 'register'),
                   ],
                 ),
               ),
