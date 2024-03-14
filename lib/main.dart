@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import '/app_bloc.dart';
 import '/app_event.dart';
 import '/app_state.dart';
 import '/pages/welcome/welcome.dart';
 import '/pages/welcome/bloc/welcome_bloc.dart';
+import 'firebase_options.dart';
+import 'pages/sign_in/bloc/sign_in_bloc.dart';
 import 'pages/sign_in/sign_in.dart';
 
-void main() {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -29,6 +39,7 @@ class MyApp extends StatelessWidget {
           providers: [
             BlocProvider(lazy: false, create: (context) => AppBlocs()),
             BlocProvider(lazy: false, create: (context) => WelcomeBlocs()),
+            BlocProvider(create: (context) => SignInBloc()),
           ],
           child: MaterialApp(
             title: 'Flutter Demo',

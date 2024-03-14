@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886837928742",
+    "project_id": "ulearning-238b0",
+    "storage_bucket": "ulearning-238b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886837928742:android:f43862d18d26a40ec917e7",
+        "android_client_info": {
+          "package_name": "com.naser_ebedo.ulearning_flutter_bloc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1kiC12XdaBT8sHBRn21FbMAirXiIT8Xs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

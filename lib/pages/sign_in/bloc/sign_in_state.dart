@@ -1,11 +1,11 @@
-class SingInState {
+class SignInState {
   final String email;
   final String password;
 
-  const SingInState({this.email = "", this.password = ""});
+  const SignInState({this.email = "", this.password = ""});
 
-  SingInState copyWith({String? email, String? password}) {
-    return SingInState(
+  SignInState copyWith({String? email, String? password}) {
+    return SignInState(
       email: email ?? this.email,
       password: password ?? this.password,
     );

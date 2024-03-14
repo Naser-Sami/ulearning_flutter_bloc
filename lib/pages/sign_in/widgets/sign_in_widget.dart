@@ -58,7 +58,8 @@ Widget reusableText(String text) => Container(
 Widget buildTextField(
         {required String hintText,
         required String textType,
-        required String iconName}) =>
+        required String iconName,
+        required void Function(String)? onChanged}) =>
     Container(
       width: 325.w,
       height: 50.h,
@@ -81,6 +82,7 @@ Widget buildTextField(
           ),
           Expanded(
             child: TextField(
+              onChanged: (v) => onChanged!(v),
               keyboardType: TextInputType.multiline,
               style: TextStyle(
                   color: AppColors.primaryText,
@@ -91,7 +93,8 @@ Widget buildTextField(
               obscureText: textType == 'password',
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: const TextStyle(color: AppColors.primarySecondaryElementText),
+                hintStyle: const TextStyle(
+                    color: AppColors.primarySecondaryElementText),
 
                 // ***
                 // Borders
@@ -135,9 +138,12 @@ Widget forgotPassword() => SizedBox(
       ),
     );
 
-Widget buildLoginAndRegisterButton(String text, String buttonType) =>
+Widget buildLoginAndRegisterButton(
+        {required String text,
+        required String buttonType,
+        required void Function()? func}) =>
     GestureDetector(
-      onTap: () {},
+      onTap: func,
       child: Container(
         width: 325.w,
         height: 50.h,
